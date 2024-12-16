@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    {% block pagename %}
+        <h1> Корзина </h1>
+    {% endblock %}
+    <br>
+    {% block menu %}
+        {{ block.super }}
+    {% endblock %}
+    <br>
+    {% block content %}
+        <dev><h2> Извините, ваша корзина пуста. </h2></dev>
+    {% endblock %}
+</body>
+</html>
