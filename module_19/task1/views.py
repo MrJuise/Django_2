@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Game, Buyer
+from .models import *
 from .forms import UserRegister
+from django.core.paginator import Paginator
 
 
 
@@ -38,3 +39,10 @@ def rega(request):
     else:
         form = UserRegister()
     return render(request, 'rega.html', {'form': form})
+
+def news(request):
+    news = News.objects.all().order_by('date')
+    paginator = Paginator(news, 3)
+    page_num = request.GET.get('page')
+    page_obj = paginator.get_page(page_num)
+    return render(request, 'news.html', {'page_obj': page_obj})
