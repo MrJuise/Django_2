@@ -6,7 +6,7 @@ from django.db import models
 class Buyer(models.Model):
     username = models.CharField(max_length=30)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=30.3)
-    age = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(120)])
+    age = models.IntegerField(validators=[MinValueValidator(0)])
 
     def __str__(self):
         return self.username
